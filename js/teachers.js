@@ -10,7 +10,7 @@ Promise.all([
   fetch('./data/classes_rows.json').then(r=>r.json())
 ]).then(([teachers, schedules, lessons, classes]) => {
 
-  const lessonById = Object.fromEntries(lessons.map(l => [l.subject.id, l]));
+  const lessonById = Object.fromEntries(lessons.map(l => [l.subject_id, l]));
   const classById  = Object.fromEntries(classes.map(c => [c.id, c]));
 
   // JOIN DATA → FLAT TABLE
@@ -77,5 +77,6 @@ document.getElementById('nextBtn').onclick = () => {
     renderTable();
   }
 };
+
 
 
