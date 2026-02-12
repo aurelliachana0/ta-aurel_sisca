@@ -18,11 +18,11 @@ Promise.all([
   teachers.forEach(t => {
     schedules
       .filter(s => s.teacher_id === t.id)
-      .forEach(s => {  console.log(s.teacher_id), console.log(s.subject)
+      .forEach(s => {
         filteredData.push({
           nip: t.nip,
           teacher: t.name,
-          lesson: lessonById[t.id]?.name || '-',
+          lesson: lessonById[s.teacher_id]?.subject || '-',
           class: classById[s.class_id]?.name || '-'
         });
       });
@@ -77,6 +77,7 @@ document.getElementById('nextBtn').onclick = () => {
     renderTable();
   }
 };
+
 
 
 
